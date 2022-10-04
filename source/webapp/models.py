@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.core.exceptions import ValidationError
 # Create your models here.
 
 
@@ -24,3 +25,9 @@ class Product(models.Model):
     
     class Meta:
         ordering = ('category','name')
+    
+    def clean(self):
+        if 'data:image/jpeg' not in self.image:
+            raise ValidationError({'image':('Incorrect link')})
+        
+        
