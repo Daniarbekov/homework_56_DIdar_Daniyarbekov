@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title%}Detail{% endblock%}
+    {% block content%}
+    <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{product.image}}" class="img-fluid rounded-start" alt="img">
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p>Категория: {{product.get_category_display}}</p>
+            <p>Статус: {{product.status}}</p>
+            <p>Описание: {{product.description}}</p>
+            <p>Остаток: {{product.balance}}</p>
+            <p>Цена: {{product.price}}</p>
+            <div class="task-links">
+                <a href="{% url 'update_product' product.pk %}" class="btn btn-secondary">Редактировать</a>
+                <a href="{% url 'delete_product' product.pk %}"  class="btn btn-secondary">Удалить</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+
+

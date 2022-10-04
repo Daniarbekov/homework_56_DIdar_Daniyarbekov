@@ -3,7 +3,7 @@ from webapp.models import Product
 
 
 def index_view(request):
-        products = Product.objects.all()
+        products = Product.objects.filter(balance__gte=1)
         context = {
             'products': products
         }

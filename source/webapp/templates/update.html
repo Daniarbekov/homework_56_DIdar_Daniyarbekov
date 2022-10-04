@@ -1,0 +1,10 @@
+
+{% extends 'base.html' %} 
+{% block title %}Update{% endblock %}
+{% block content %}
+    <form action= "" method="POST" >
+        <div class='form'>
+                {%  include 'partial/product_form.html'  with button_text='Изменить' %}
+        </div>
+    </form>
+{% endblock %}
